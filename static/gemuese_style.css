@@ -99,6 +99,8 @@ ul {
   display: flex;
   -webkit-flex-flow: wrap column; /* Safari 6.1+ */
   flex-flow: wrap column;
+  justify-content: left;
+  -webikit-justify-content: left;
   max-height: 600px;              /* Limit height to whatever you need */
   min-width: 400px;
 }
@@ -109,15 +111,6 @@ li {
   border: 5px solid #cda44c;
   font-family: monospace;
   font-size: 18px;
-}
-
-li a:link, a:visited {
-  color: #cda44c;
-  text-decoration: none;
-} 
-
-li a:hover, a:active {
-  color: white;
 }
 
 .recipe {
@@ -158,14 +151,12 @@ li a:hover, a:active {
   font-size: 18px;
 }
 
-form {
+.form {
   color: #cda44c;
   font-family: monospace;
   font-size: 18px;
   padding-top: 50px;
-  padding-right: 25px;
   padding-bottom: 5px;
-  padding-left: 25px;
 }
 
 .info {
