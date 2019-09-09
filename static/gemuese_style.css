@@ -89,6 +89,7 @@ body, html {
   padding-right: 50px;
   padding-bottom: 5px;
   padding-left: 50px;
+  align-self: flex-start;
 }
 
 ul {
@@ -131,10 +132,6 @@ li a:hover {
     height: 400px;
 	width: 75%;
   box-sizing: border-box;
-  display: -ms-flexbox;           /* IE 10 */
-  display: -webkit-flex;          /* Safari 6.1+. iOS 7.1+ */
-  display: flex;
-  justify-content: left;
 }
 
 .recipe a:link, a:visited, a:active {
@@ -145,14 +142,17 @@ li a:hover {
   padding-right: 50px;
   padding-bottom: 5px;
   padding-left: 50px;
+  /* align-self: flex-start; */
 } 
 
 .recipe a:hover {
   color: white;
+  /* align-self: flex-start; */
 }
 
 .recipe_image {
   padding-top: 5px;
+  padding-bottom: 10px;
 }
 
 form {
