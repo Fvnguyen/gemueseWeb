@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='gemuese_style.css') }}">
+		<title>{{title}}</title>
+	</head>
+	<body>
+		<div class="background">
+			<div class="nav">
+				<a href="suggestion">Empfehlung</a>
+				<a href="seasonal">Übersicht</a>
+				<a href="look_up">Suche</a>
+				<a href="getrecipe">Rezept</a>
+				<a href="veggyrecipe">Vegetarisches Rezept</a>
+				<a href="veganrecipe">Veganes Rezept</a>
+			</div>
+			<!-- This contains the the result of the function calls -->
+			<div class="recipe">
+				<p class="intro">
+					{{label}}
+				</p>
+				<form method="POST">
+						<input name="text">
+						<input type="submit">
+				</form>
+			</div>
+			<div class='info'>
+					Diese Seite empfiehlt Gemüse und Rezpte welche aktuell in Deutschland in Saison sind. Die Datenquelle des Bundeszentrums für Ernährung sowie den Quellcode findest Du hier: https://github.com/Fvnguyen/gemuese_bot.
+			</div>
+		</div>
+	</body>
+</html>

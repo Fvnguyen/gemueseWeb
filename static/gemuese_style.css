@@ -1,0 +1,189 @@
+body, html {
+  background: url(../static/gemuese.jpg) center top;
+  background-size: cover;
+  text-rendering: optimizeLegibility !important;
+  -webkit-font-smoothing: antialiased !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.nav {
+  background-color: rgba(255, 255, 255, .6);
+  font-family: monospace;
+  font-size: 16px;
+  color: #455934;
+  margin: auto;
+  margin-bottom: 25px;
+  padding: 50px;
+  padding-left: 50px;
+  padding-right: 50px;
+	height: 150px;
+	width: 75%;
+	box-sizing: border-box;
+  display:flex;
+}
+
+.nav a:link, a:active {
+  color: #455934;
+  padding-left: 5px;
+  padding-right: 5px;
+  border: 2px solid #cda44c;
+  text-decoration: none;
+  display: inline-block;
+  font-family: monospace;
+  font-size: 16px;
+  margin: auto;
+  width: 180px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: -webkit-flex;
+  -webkit-align-items: center;
+  -webikit-justify-content: center;
+} 
+
+.nav a:visited {
+  color: #455934;
+  padding-left: 5px;
+  padding-right: 5px;
+  border: 2px solid #cda44c;
+  text-decoration: none;
+  display: inline-block;
+  font-family: monospace;
+  font-size: 16px;
+  margin: auto;
+  width: 180px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: -webkit-flex;
+  -webkit-align-items: center;
+  -webikit-justify-content: center;
+} 
+
+.nav a:hover {
+  background-color: #455934;
+  color: #cda44c;
+}
+
+
+.content{
+	background-color: rgba(255, 255, 255, .6);
+	margin: auto;
+	display: block;
+	justify-content: left;
+	min-height: 400px;
+    height: auto !important;
+    height: 400px;
+	width: 75%;
+	box-sizing: border-box;
+}
+
+.intro {
+  font-family: monospace;
+  font-size: 24px;
+  color: #455934;
+  padding-top: 25px;
+  padding-right: 50px;
+  padding-bottom: 5px;
+  padding-left: 50px;
+}
+
+ul {
+  list-style: none;
+  padding-top: 5px;
+  padding-right: 50px;
+  padding-bottom: 50px;
+  padding-left: 50px;
+  display: -ms-flexbox;           /* IE 10 */
+  display: -webkit-flex;          /* Safari 6.1+. iOS 7.1+ */
+  display: flex;
+  -webkit-flex-flow: wrap column; /* Safari 6.1+ */
+  flex-flow: wrap column;
+  max-height: 600px;              /* Limit height to whatever you need */
+  min-width: 400px;
+}
+li {
+  padding: 5px 10px;
+  background-color: #455934;
+  color: #cda44c;
+  border: 5px solid #cda44c;
+  font-family: monospace;
+  font-size: 18px;
+}
+
+li a:link, a:visited, a:active {
+  color: #cda44c;
+  text-decoration: none;
+} 
+
+li a:hover {
+  color: white;
+}
+
+.recipe {
+	background-color: rgba(255, 255, 255, .6);
+	margin: auto;
+	min-height: 400px;
+    height: auto !important;
+    height: 400px;
+	width: 75%;
+  box-sizing: border-box;
+  display: -ms-flexbox;           /* IE 10 */
+  display: -webkit-flex;          /* Safari 6.1+. iOS 7.1+ */
+  display: flex;
+  justify-content: left;
+}
+
+.recipe a:link, a:visited, a:active {
+  color: #cda44c;
+  font-family: monospace;
+  font-size: 18px;
+  padding-top: 5px;
+  padding-right: 50px;
+  padding-bottom: 5px;
+  padding-left: 50px;
+} 
+
+.recipe a:hover {
+  color: white;
+}
+
+.recipe_image {
+  padding-top: 5px;
+}
+
+form {
+  color: #cda44c;
+  font-family: monospace;
+  font-size: 18px;
+  padding-top: 50px;
+  padding-right: 25px;
+  padding-bottom: 5px;
+  padding-left: 25px;
+}
+
+.info {
+  background-color: rgba(255, 255, 255, .6);
+  margin: auto;
+  width: 75%;
+  height: 40px;
+  margin-top: 10px;
+  margin-bottom: 25px;
+  color: #455934;
+  font-family: monospace;
+  font-size: 12px;
+  padding-top: 10px;
+  padding-right: 25px;
+  padding-bottom: 10px;
+  padding-left: 25px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  display: -webkit-flex;
+  -webkit-align-items: center;
+  -webikit-justify-content: left;
+}

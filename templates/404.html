@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='WoM_style.css') }}">
+		<title>{{title}}</title>
+	</head>
+	<body>
+		<div class="background">
+			<div class="header">
+				<a href="https://flaskrtest3.herokuapp.com/">
+					<img src="{{ url_for('static',filename='Sound.png') }}" alt="Sound" class="head_image">
+				</a>
+				<div class="title"><em class="neon1">And then there was sound</em><em class="neon2">...like...</em><em class="neon3">a lot of it!</em></div>
+			</div>
+			<!-- This contains the "Wall of Music", each gif is taken from giphy and each link refers to youtube -->
+			<div class="wall">
+				<span class="instruct">
+					This is a 404 error! Your page was not found. <br>
+					Enjoy some music instead: Please click on any tile to discover music!
+				</span>
+				<a href="Outrun">
+					<img src="http://i1.kym-cdn.com/photos/images/newsfeed/001/135/767/f88.gif" alt="Outrun!" class="sound_cube">
+				</a>
+				<a href="Bollywood">
+					<img src="https://media.giphy.com/media/zhtlweOpFnu9y/giphy.gif" alt="Bollywood!" class="sound_cube">
+				</a>
+				<a href="Vaporwave">
+						<img src="https://media.giphy.com/media/3o7abJxL1w984uW2AM/giphy.gif" alt="Vaporwave!" class="sound_cube">
+				</a>
+				<a href="Chillwave">
+					<img src="https://media.giphy.com/media/LCmfDxIjQRQmA/giphy.gif" alt="Chillwave!" class="sound_cube">
+				</a>
+				<a href="Rock">
+					<img src="https://media.giphy.com/media/11P9MoNgzYl9vy/giphy.gif" alt="Rock!" class="sound_cube">
+				</a>
+				<a href="Indie">
+					<img src="https://media.giphy.com/media/TpVm9yecN2nvy/giphy.gif" alt="Indie!" class="sound_cube">
+				</a>
+			</div>
+		</div>
+	</body>
+</html>
