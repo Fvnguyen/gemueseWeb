@@ -1,6 +1,8 @@
 # gemueseWeb
 A Web App bot that recommends seasonal vegetables and more.
 
+You find the web app here: https://nachhaltig-kochen.herokuapp.com/
+
 This repo contains the relevant source code and data:
 
 1. main.py - The main bot based on flask
