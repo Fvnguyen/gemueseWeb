@@ -5,7 +5,11 @@ import random
 import time
 import os
 import pandas as pd
+import redis
+import pickle
 from datetime import datetime
+
+r = redis.from_url(os.environ.get("REDIS_URL"))
 
 #Calculates the normalized Levenshtein distance of 2 strings
 def levenshtein(s1, s2):
@@ -32,57 +36,72 @@ def matching(text,master_list):
     return result
 
 def veggyrecipe():
-    ingredient_list = ','.join(random.sample(eng_seasonal(),2))
-    uniseasonal = []
-    for x in eng_unseasonal():
-        uniseasonal.append('excluded='+x)
-    uniseasonal = '&'.join(uniseasonal)
-    appid = '&app_id='+os.environ['EDAMAM_app']
-    appapi = '&app_key='+os.environ['EDAMAM_api']
-    url = 'https://api.edamam.com/search?q='+ingredient_list+'&'+uniseasonal+appid+appapi+'&health=vegetarian'
-    response = requests.request("GET", url)
-    recipe = response.json()['hits'][0]['recipe']
+    if redis.exists("vgrecipe"):
+        recipe = pickle.loads(r.get('vgrecipe'))
+    else:
+        ingredient_list = ','.join(random.sample(eng_seasonal(),2))
+        uniseasonal = []
+        for x in eng_unseasonal():
+            uniseasonal.append('excluded='+x)
+        uniseasonal = '&'.join(uniseasonal)
+        appid = '&app_id='+os.environ['EDAMAM_app']
+        appapi = '&app_key='+os.environ['EDAMAM_api']
+        url = 'https://api.edamam.com/search?q='+ingredient_list+'&'+uniseasonal+appid+appapi+'&health=vegetarian'
+        response = requests.request("GET", url)
+        recipe = response.json()['hits'][0]['recipe']
     summary = '<a href='+recipe['url']+'>'+recipe['label']+'</a>'
     image = recipe['image']
     title = recipe['label']
     url = recipe['url']
     source = recipe['source']
+    precipe = pickle.dumps(recipe)
+    r.set('vgrecipe',precipe,ex = 20)
     return 'Versuche es mal mit diesem leckeren Rezept:',summary, image,title,url,source
 
 def veganrecipe():
-    ingredient_list = ','.join(random.sample(eng_seasonal(),2))
-    uniseasonal = []
-    for x in eng_unseasonal():
-        uniseasonal.append('excluded='+x)
-    uniseasonal = '&'.join(uniseasonal)
-    appid = '&app_id='+os.environ['EDAMAM_app']
-    appapi = '&app_key='+os.environ['EDAMAM_api']
-    url = 'https://api.edamam.com/search?q='+ingredient_list+'&'+uniseasonal+appid+appapi+'&health=vegan'
-    response = requests.request("GET", url)
-    recipe = response.json()['hits'][0]['recipe']
+    if redis.exists("vnrecipe"):
+        recipe = pickle.loads(r.get('vnrecipe'))
+    else:
+        ingredient_list = ','.join(random.sample(eng_seasonal(),2))
+        uniseasonal = []
+        for x in eng_unseasonal():
+            uniseasonal.append('excluded='+x)
+        uniseasonal = '&'.join(uniseasonal)
+        appid = '&app_id='+os.environ['EDAMAM_app']
+        appapi = '&app_key='+os.environ['EDAMAM_api']
+        url = 'https://api.edamam.com/search?q='+ingredient_list+'&'+uniseasonal+appid+appapi+'&health=vegan'
+        response = requests.request("GET", url)
+        recipe = response.json()['hits'][0]['recipe']
     summary = '<a href='+recipe['url']+'>'+recipe['label']+'</a>'
     image = recipe['image']
     title = recipe['label']
     url = recipe['url']
     source = recipe['source']
+    precipe = pickle.dumps(recipe)
+    r.set('vnrecipe',precipe,ex = 20)
     return 'Versuche es mal mit diesem leckeren Rezept:',summary, image,title,url,source
 
 def getrecipe():
-    ingredient_list = ','.join(random.sample(eng_seasonal(),2))
-    uniseasonal = []
-    for x in eng_unseasonal():
-        uniseasonal.append('excluded='+x)
-    uniseasonal = '&'.join(uniseasonal)
-    appid = '&app_id='+os.environ['EDAMAM_app']
-    appapi = '&app_key='+os.environ['EDAMAM_api']
-    url = 'https://api.edamam.com/search?q='+ingredient_list+'&'+uniseasonal+appid+appapi
-    response = requests.request("GET", url)
-    recipe = response.json()['hits'][0]['recipe']
+    if redis.exists("recipe"):
+        recipe = pickle.loads(r.get('recipe'))
+    else:
+        ingredient_list = ','.join(random.sample(eng_seasonal(),2))
+        uniseasonal = []
+        for x in eng_unseasonal():
+            uniseasonal.append('excluded='+x)
+        uniseasonal = '&'.join(uniseasonal)
+        appid = '&app_id='+os.environ['EDAMAM_app']
+        appapi = '&app_key='+os.environ['EDAMAM_api']
+        url = 'https://api.edamam.com/search?q='+ingredient_list+'&'+uniseasonal+appid+appapi
+        response = requests.request("GET", url)
+        recipe = response.json()['hits'][0]['recipe']
     summary = '<a href='+recipe['url']+'>'+recipe['label']+'</a>'
     image = recipe['image']
     title = recipe['label']
     url = recipe['url']
     source = recipe['source']
+    precipe = pickle.dumps(recipe)
+    r.set('recipe',precipe,ex = 20)
     return 'Versuche es mal mit diesem leckeren Rezept:',summary, image,title,url,source
 
 # Gemuesefunktionen
