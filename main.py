@@ -9,6 +9,14 @@ import veg_processes as vp
 app = Flask(__name__)
 
 # Gemüse
+
+@app.route("/")
+def index():
+    result = vp.suggestion()
+    label = result[0]
+    result = result[1]
+    return render_template('gemuese.html',title=label, result = result)
+
 @app.route("/<endpoint>")
 def gemuese(endpoint):
     print(endpoint)
