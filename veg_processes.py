@@ -36,7 +36,7 @@ def matching(text,master_list):
     return result
 
 def veggyrecipe():
-    if redis.exists("vgrecipe"):
+    if r.exists("vgrecipe"):
         recipe = pickle.loads(r.get('vgrecipe'))
     else:
         ingredient_list = ','.join(random.sample(eng_seasonal(),2))
@@ -59,7 +59,7 @@ def veggyrecipe():
     return 'Versuche es mal mit diesem leckeren Rezept:',summary, image,title,url,source
 
 def veganrecipe():
-    if redis.exists("vnrecipe"):
+    if r.exists("vnrecipe"):
         recipe = pickle.loads(r.get('vnrecipe'))
     else:
         ingredient_list = ','.join(random.sample(eng_seasonal(),2))
@@ -82,7 +82,7 @@ def veganrecipe():
     return 'Versuche es mal mit diesem leckeren Rezept:',summary, image,title,url,source
 
 def getrecipe():
-    if redis.exists("recipe"):
+    if r.exists("recipe"):
         recipe = pickle.loads(r.get('recipe'))
     else:
         ingredient_list = ','.join(random.sample(eng_seasonal(),2))
