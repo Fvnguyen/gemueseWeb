@@ -53,6 +53,7 @@ def veggyrecipe():
     image = recipe['image']
     title = recipe['label']
     url = recipe['url']
+    url = re.sub('^drupal.{1}','',url)
     source = recipe['source']
     precipe = pickle.dumps(recipe)
     r.set('vgrecipe',precipe,ex = 20)
@@ -76,6 +77,7 @@ def veganrecipe():
     image = recipe['image']
     title = recipe['label']
     url = recipe['url']
+    url = re.sub('^drupal.{1}','',url)
     source = recipe['source']
     precipe = pickle.dumps(recipe)
     r.set('vnrecipe',precipe,ex = 20)
@@ -99,6 +101,7 @@ def getrecipe():
     image = recipe['image']
     title = recipe['label']
     url = recipe['url']
+    url = re.sub('^drupal.{1}','',url)
     source = recipe['source']
     precipe = pickle.dumps(recipe)
     r.set('recipe',precipe,ex = 20)
