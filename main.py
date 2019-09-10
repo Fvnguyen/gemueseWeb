@@ -28,7 +28,8 @@ def gemuese(endpoint):
         label = result[3]
         url = result[4]
         source = result[5]
-        return render_template('rezept.html',title=title, url = url,label = label, image = image, source = source)
+        ingredient_list = result[6]
+        return render_template('rezept.html',title=title, url = url,label = label, image = image, source = source, ingredient_list = ingredient_list)
     else:
         label = result[0]
         result = result[1]

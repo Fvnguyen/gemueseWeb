@@ -56,7 +56,7 @@ def veggyrecipe():
     source = recipe['source']
     precipe = pickle.dumps(recipe)
     r.set('vgrecipe',precipe,ex = 20)
-    return 'Versuche es mal mit diesem leckeren Rezept:',summary, image,title,url,source
+    return 'Versuche es mal mit diesem leckeren Rezept:',summary, image,title,url,source, ingredient_list
 
 def veganrecipe():
     if r.exists("vnrecipe"):
@@ -79,7 +79,7 @@ def veganrecipe():
     source = recipe['source']
     precipe = pickle.dumps(recipe)
     r.set('vnrecipe',precipe,ex = 20)
-    return 'Versuche es mal mit diesem leckeren Rezept:',summary, image,title,url,source
+    return 'Versuche es mal mit diesem leckeren Rezept:',summary, image,title,url,source,ingredient_list
 
 def getrecipe():
     if r.exists("recipe"):
@@ -102,7 +102,7 @@ def getrecipe():
     source = recipe['source']
     precipe = pickle.dumps(recipe)
     r.set('recipe',precipe,ex = 20)
-    return 'Versuche es mal mit diesem leckeren Rezept:',summary, image,title,url,source
+    return 'Versuche es mal mit diesem leckeren Rezept:',summary, image,title,url,source,ingredient_list
 
 # Gemuesefunktionen
 
