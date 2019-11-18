@@ -23,7 +23,7 @@
 				<ul>
 					{% for vegetable in result %}
 						<li>{{vegetable}}</li>
-						<img src = "{{ url_for('static',filename=vegetable+'.jpg') }}", alt = {{vegetable}}>
+						<img src = "{{ url_for('static',filename=vegetable+'.jpg') }}", alt = {{vegetable}}, style="width:461px;height:251px;">
 					{% endfor %}
 				</ul>
 			</div>
