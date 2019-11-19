@@ -94,6 +94,7 @@ ul {
   list-style: none;
   padding-top: 5px;
   padding-bottom: 50px;
+  padding: 0px;
   display: -ms-flexbox;           /* IE 10 */
   display: -webkit-flex;          /* Safari 6.1+. iOS 7.1+ */
   display: flex;
@@ -106,7 +107,7 @@ ul {
   min-height: 400px;
     height: auto !important;
     height: 400px;
-	width: 75%;
+	width: 100%;
 }
 li {
   padding: 5px 10px;
@@ -115,7 +116,7 @@ li {
   border: 5px solid #cda44c;
   font-family: monospace;
   font-size: 18px;
-  width: 50%;
+  width: 45%;
 }
 
 .recipe {
