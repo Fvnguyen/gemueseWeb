@@ -97,12 +97,14 @@ ul {
   display: -ms-flexbox;           /* IE 10 */
   display: -webkit-flex;          /* Safari 6.1+. iOS 7.1+ */
   display: flex;
-  -webkit-flex-flow: wrap column; /* Safari 6.1+ */
-  flex-flow: wrap column;
+  -webkit-flex-flow: wrap row; /* Safari 6.1+ */
+  flex-flow: wrap row;
   justify-content: left;
   -webikit-justify-content: left;
-  max-height: 600px;              /* Limit height to whatever you need */
-  min-width: 400px;
+  min-height: 400px;
+    height: auto !important;
+    height: 400px;
+	width: 75%;
 }
 li {
   padding: 5px 10px;
@@ -111,6 +113,7 @@ li {
   border: 5px solid #cda44c;
   font-family: monospace;
   font-size: 18px;
+  width: 45%;
 }
 
 .recipe {
