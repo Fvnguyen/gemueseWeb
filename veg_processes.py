@@ -112,7 +112,7 @@ def getrecipe():
 def seasonal():
     ledger = pd.read_csv("gemuese_full.csv",encoding = "utf-8", sep = ",")
     current_month = datetime.today().month
-    seasonal = ledger.query("Month == "+str(current_month)).query("Seasonal == True")["gemuese"].tolist()
+    seasonal = ledger.query("Month == "+str(current_month)).query("Seasonal == True").query("duplicate != True")["gemuese"].tolist()
     return 'Diese Gemüsesorten sind diesen Monat in Saison:',seasonal
 
 def unseasonal():
@@ -124,7 +124,7 @@ def unseasonal():
 def eng_seasonal():
     ledger = pd.read_csv("gemuese_full.csv",encoding = "utf-8", sep = ",")
     current_month = datetime.today().month
-    seasonal = ledger.query("Month == "+str(current_month)).query("Seasonal == True")["vegetable"].tolist()
+    seasonal = ledger.query("Month == "+str(current_month)).query("Seasonal == True").query("duplicate != True")["vegetable"].tolist()
     return seasonal
 
 def eng_unseasonal():
@@ -138,12 +138,18 @@ def in_list():
     master = ledger["gemuese"].tolist()
     return master
 
+def in_season():
+    ledger = pd.read_csv("gemuese_full.csv",encoding = "utf-8", sep = ",")
+    current_month = datetime.today().month
+    seasonal = ledger.query("Month == "+str(current_month)).query("Seasonal == True")["gemuese"].tolist()
+    return 'Diese Gemüsesorten sind diesen Monat in Saison:',seasonal
+
 def suggestion():
     suggestion = random.sample(seasonal()[1],1)
     return 'Warum kochst Du heute nicht etwas mit:',suggestion
 
 def look_up(veggie):
-    season_list = [x.lower() for x in seasonal()[1]]
+    season_list = [x.lower() for x in in_season()[1]]
     master = [x.lower() for x in in_list()]
     approval = matching(veggie.lower(),season_list)
     in_master = matching(veggie.lower(),master)
