@@ -97,10 +97,12 @@ ul {
   display: -ms-flexbox;           /* IE 10 */
   display: -webkit-flex;          /* Safari 6.1+. iOS 7.1+ */
   display: flex;
-  -webkit-flex-flow: wrap row; /* Safari 6.1+ */
-  flex-flow: wrap row;
+  -webkit-flex-direction: row; /* Safari 6.1+ */
+  -webkit-flex-wrap: wrap; /* Safari 6.1+ */
+  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: left;
-  -webikit-justify-content: left;
+  -webkit-justify-content: left;
   min-height: 400px;
     height: auto !important;
     height: 400px;
@@ -113,7 +115,7 @@ li {
   border: 5px solid #cda44c;
   font-family: monospace;
   font-size: 18px;
-  width: 45%;
+  width: 50%;
 }
 
 .recipe {
