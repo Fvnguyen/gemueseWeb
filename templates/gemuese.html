@@ -24,7 +24,7 @@
 					{% for vegetable in result %}
 						<li>{{vegetable}}
 							<br>
-							<img src = "{{ url_for('static',filename=vegetable+'.jpg') }}", onerror="this.onerror=null; this.src='static/Default.jpg'", alt = {{vegetable}}, style="width:461px;height:251px;">
+							<img src = "{{ url_for('static',filename=vegetable+'.jpg') }}", onerror="this.onerror=null; this.src='static/Default.jpg'", alt = {{vegetable}}, style="width:50%;height:auto;">
 						</li>
 					{% endfor %}
 				</ul>
