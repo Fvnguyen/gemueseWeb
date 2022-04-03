@@ -40,21 +40,16 @@ def veggyrecipe():
         recipe = pickle.loads(r.get('vgrecipe'))
     else:
         ingredient_list = ','.join(random.sample(eng_seasonal(),2))
-        uniseasonal = []
-        for x in eng_unseasonal():
-            uniseasonal.append('excluded='+x)
-        uniseasonal = '&'.join(uniseasonal)
-        appid = '&app_id='+os.environ['EDAMAM_app']
-        appapi = '&app_key='+os.environ['EDAMAM_api']
-        url = 'https://api.edamam.com/search?q='+ingredient_list+'&'+uniseasonal+appid+appapi+'&health=vegetarian'
-        response = requests.request("GET", url)
-        recipe = response.json()['hits'][0]['recipe']
-    summary = '<a href='+recipe['url']+'>'+recipe['label']+'</a>'
-    image = recipe['image']
-    title = recipe['label']
-    url = recipe['url']
+        uniseasonal = ','.join(eng_unseasonal())
+        query = {'apiKey':os.environ['SPOONACULAR_API'],'includeIngredients':ingredient_list, 'excludeIngredients':uniseasonal,'diet':'vegetarian','number':1}
+        response = requests.get('https://api.spoonacular.com/recipes/complexSearch', params=query)
+        deep_query = {'apiKey':os.environ['SPOONACULAR_API'],'includeNutrition':'false'}
+        recipe = requests.get("https://api.spoonacular.com/recipes/"+str(response.json()['results'][0]['id'])+"/information",params=deep_query)
+    title = result.json()['title']
+    image = result.json()['image']
+    url = result.json()['sourceUrl']
+    source = result.json()['sourceName']
     url = re.sub('^drupal.{1}','',url)
-    source = recipe['source']
     precipe = pickle.dumps(recipe)
     r.set('vgrecipe',precipe,ex = 20)
     return 'Versuche es mal mit diesem leckeren Rezept:',summary, image,title,url,source, ingredient_list
