@@ -45,14 +45,14 @@ def veggyrecipe():
         response = requests.get('https://api.spoonacular.com/recipes/complexSearch', params=query)
         deep_query = {'apiKey':os.environ['SPOONACULAR_API'],'includeNutrition':'false'}
         recipe = requests.get("https://api.spoonacular.com/recipes/"+str(response.json()['results'][0]['id'])+"/information",params=deep_query)
-    title = result.json()['title']
-    image = result.json()['image']
-    url = result.json()['sourceUrl']
-    source = result.json()['sourceName']
+    title = recipe.json()['title']
+    image = recipe.json()['image']
+    url = recipe.json()['sourceUrl']
+    source = recipe.json()['sourceName']
     url = re.sub('^drupal.{1}','',url)
     precipe = pickle.dumps(recipe)
     r.set('vgrecipe',precipe,ex = 20)
-    return 'Versuche es mal mit diesem leckeren Rezept:',summary, image,title,url,source, ingredient_list
+    return 'Versuche es mal mit diesem leckeren Rezept:', image,title,url,source, ingredient_list
 
 def veganrecipe():
     if r.exists("vnrecipe"):
