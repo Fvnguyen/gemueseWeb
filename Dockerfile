@@ -1,7 +1,6 @@
 # For more information, please refer to https://aka.ms/vscode-docker-python
 FROM python:3.8-slim
 
-EXPOSE 8080
 EXPOSE 80
 
 # Keeps Python from generating .pyc files in the container
